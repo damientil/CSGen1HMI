@@ -41,7 +41,7 @@ https://github.com/damientil/CSGen1HMI/edit/main/README.md#hmi_reg_irq-register
 
 
 | REG_ID | Register                                | Purpose     | Description | Tested |
-|--------|-----------------------------------------|-------------|-------------|--------|
+|:------:|-----------------------------------------|:-----------:|-------------|:------:|
 | 0x00   | HMI_REG_VERSION_NUM                     | common      |  | nok :red_circle:
 | 0x01   | HMI_REG_VERSION_SRING                   | common      |  | nok :red_circle:
 | 0x02   | [HMI_REG_IRQ](#hmi_reg_irq-register)    | common      | Notify master which interrupt occured | ok
@@ -76,7 +76,7 @@ debian@BeaglePlay:~$ i2cget -y 3 0x50 0x02 wp
 0x0000 means no IRQ happen
 
 | Bit | Mask | Description             |
-| --- | ---- | ----------------------- |
+| :-: | :--: | ----------------------- |
 | 0   | 0x01 | RFID interrupt occured  |
 | 0   | 0x10 | Force charge interrupt occured  |
 | 5   | 0x20 | Touch interrupt occured |
@@ -93,3 +93,20 @@ debian@BeaglePlay:~$ i2cget -y 3 0x50 0x02 wp
 
 ```
 Selective clear can also be performed using bitmask instead of 0xFFFF value.
+
+## PWM
+| Duty cycle | Hexa value |
+|:---:|:---:|
+| 1   | 0x000A   |
+| 2   | 0x0014  |
+| 5   | 0x0032  |
+| 10  | 0x0064  |
+| 20  | 0x00C8  |
+| 30  | 0x012C |
+| 40  | 0x0190 |
+| 50  | 0x01F4 |
+| 60  | 0x0258 |
+| 70  | 0x02BC |
+| 80  | 0x0320 |
+| 90  | 0x0384 |
+| 100 | 0x03E8 |
