@@ -37,11 +37,14 @@ Replace REG_ID with the register id from the table below.
 
 ## Registers list
 
+https://github.com/damientil/CSGen1HMI/edit/main/README.md#hmi_reg_irq-register
+
+
 | Address | Register                                | Purpose     | Tested |
 |---------|-----------------------------------------|-------------|--------|
 | 0x00    | HMI_REG_VERSION_NUM                     | common      | nok
 | 0x01    | HMI_REG_VERSION_SRING                   | common      | nok
-| 0x02    | HMI_REG_IRQ                             | common      | ok
+| 0x02    | [HMI_REG_IRQ](hmi_reg_irq-register)                             | common      | ok
 | 0x03    | HMI_REG_IER                             | common      | ok
 | 0x04    | HMI_REG_CPUID                           | common      | nok
 | 0x05    | HMI_REG_NFC_LEN                         | common      | ok
@@ -61,7 +64,7 @@ Replace REG_ID with the register id from the table below.
 | 0x38    | HMI_REG_HEARTBEAT_LOST_FREQUENCY        | common      | ok
 
 
-## IRQ register
+## HMI_REG_IRQ register
 
 ### Read register
 ```
