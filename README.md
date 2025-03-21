@@ -44,7 +44,7 @@ https://github.com/damientil/CSGen1HMI/edit/main/README.md#hmi_reg_irq-register
 |---------|-----------------------------------------|-------------|--------|
 | 0x00    | HMI_REG_VERSION_NUM                     | common      | nok
 | 0x01    | HMI_REG_VERSION_SRING                   | common      | nok
-| 0x02    | [HMI_REG_IRQ](#test)                             | common      | ok
+| 0x02    | [HMI_REG_IRQ](#hmi_reg_irq-register)                             | common      | ok
 | 0x03    | HMI_REG_IER                             | common      | ok
 | 0x04    | HMI_REG_CPUID                           | common      | nok
 | 0x05    | HMI_REG_NFC_LEN                         | common      | ok
@@ -64,13 +64,15 @@ https://github.com/damientil/CSGen1HMI/edit/main/README.md#hmi_reg_irq-register
 | 0x38    | HMI_REG_HEARTBEAT_LOST_FREQUENCY        | common      | ok
 
 
-## test
+## HMI_REG_IRQ register
 
 ### Read register
 ```
 debian@BeaglePlay:~$ i2cget -y 3 0x50 0x02 wp
 0x0021
 ```
+### Returned value
+
 0x0000 means no IRQ happen
 
 | Bit | Mask | Description             |
