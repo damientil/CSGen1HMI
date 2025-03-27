@@ -10,7 +10,7 @@ SWDIO and SWCLK are overlaid on the TMS and TCK pins, allowing to use the same c
 
 ### SWD wiring on PCB
 
-
+![hmi-pcb-swd](docs/hmi-pcb-swd.png)
 
 ## Connect to Wifi Beagle hotspot
 * Wifi host : BeaglePlay-xxx
