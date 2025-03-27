@@ -18,6 +18,8 @@ This HMI embeds:
 * Touch: AT42QT1011
 * Led driver: DMN61D8L
 
+![hmi-pcb](docs/hmi-pcb.png)
+
 ## HMI board : wiring
 
 ### Target interface SWD 
