@@ -119,13 +119,32 @@ For long data (Sw version, NFC UID, etc)
 i2ctransfer -y 2 w1@0x50 0x00 r4
 ```
 
+## HMI_REG_CHARGE_STATE_MAIN
+
+Writing value in this register set the user led pattern
+
+```
+i2cset -y 3 0x50 0x07 REG_VALUE wp
+```
+
+| State                        | Led pattern                                                                  | Register value |
+|------------------------------|------------------------------------------------------------------------------|:--------------:|
+| Initialization               | Green, Blue and Red   Leds with two blinks for each before, without timeout. |     0x0016     |
+| Available                    | Green Led without a timeout                                                  |     0x0010     |
+| Electrical Vehicle connected | Green Led with blinking frequency of 1   Hz, without timeout.                |     0x0011     |
+| On charge                    | Blue Led without timeout.                                                    |     0x0012     |
+| Wait RFID                    | Blue Led with a blinking frequency of 500   ms                               |     0x0014     |
+| Charging Station Booked      | Blue Led with blinking frequency of 0.5   Hz, without timeout.               |     0x0015     |
+| Out Of Service               | Red Led without timeout.                                                     |     0x0013     |
+| Cloud Disconnected           | Red Led with blinking frequency of 1 Hz,   without timeout.                  |     0x0031     |
+| RFID Declined                | Red Led with blinking frequency of 4 Hz,   with timeout of 2 second          |     0x0021     |
+| Touch Detected               | Yellow (red+green leds)
 
 ## HMI_REG_IRQ register
 
 ### Read register
 ```
-debian@BeaglePlay:~$ i2cget -y 3 0x50 0x02 wp
-0x0021
+i2cget -y 3 0x50 0x02 wp
 ```
 ### Returned value
 
@@ -142,7 +161,7 @@ debian@BeaglePlay:~$ i2cget -y 3 0x50 0x02 wp
 
 To clear IRQ register, write 0xFF.
 ```
-debian@BeaglePlay:~$ i2cset -y 3 0x50 0x02 0xFFFF wp
+i2cset -y 3 0x50 0x02 0xFFFF wp
 ```
 
 Read back register. 0x0000 value is expected
