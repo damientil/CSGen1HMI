@@ -20,7 +20,7 @@ This HMI embeds:
 
 ![hmi-pcb](docs/hmi-pcb.png)
 
-## HMI board : wiring
+## HMI sw debug
 
 ### Target interface SWD 
 
@@ -60,11 +60,13 @@ Pins 4, 6, 8, 10, 12, 14, 16, 18, 20 are GND pins connected to GND in J-Link. Th
 
 ![hmi-pcb-swd](docs/jlink-swd.png)
 
-## Connect to Wifi Beagle hotspot
+## Setup i2c interface with Beagle Play
+
+### Connect to Wifi Beagle hotspot
 * Wifi host : BeaglePlay-xxx
 * Password : BeaglePlay or Beagle board
 
-## Connect thru SSH
+### Connect thru SSH
 
 ```
 l-dtil@CRE2-L05426:~$ ssh debian@192.168.8.1
@@ -72,7 +74,7 @@ l-dtil@CRE2-L05426:~$ ssh debian@192.168.8.1
 
 * Password : temppwd
 
-## Discover I2C
+### Discover I2C
 
 ```
 debian@BeaglePlay:~$ i2cdetect -l
@@ -86,9 +88,9 @@ i2c-5	i2c       	OMAP I2C adapter                	I2C adapter
 I2C-5 is the QWIIC connection
 
 
-# Commands
+## Functional
 
-## Registers list
+### Registers list
 
 | REG_ID | Register                                | Access | Purpose     | Description |
 |:------:|-----------------------------------------|:------:|:-----------:|-------------|
@@ -113,7 +115,7 @@ I2C-5 is the QWIIC connection
 | 0x37   | HMI_REG_STATUS_HMI_RFID_ENABLED         | R      | common      |  |
 | 0x38   | HMI_REG_HEARTBEAT_LOST_FREQUENCY        | W      | common      |  |
 
-## Read register - general
+### Read register - general
 
 ```
 i2cget -y 3 0x50 REG_ID wp
@@ -126,7 +128,7 @@ For long data (Sw version, NFC UID, etc)
 i2ctransfer -y 2 w1@0x50 0x00 r4
 ```
 
-## HMI_REG_CHARGE_STATE_MAIN
+### HMI_REG_CHARGE_STATE_MAIN
 
 Writing value in this register set the user led pattern
 
@@ -147,13 +149,13 @@ i2cset -y 3 0x50 0x07 REG_VALUE wp
 | RFID Declined                | Red Led with blinking frequency of 4 Hz,   with timeout of 2 second          |     0x0021     |
 | Touch Detected               | Yellow (red+green leds)                                                      |     0x0017     |
 
-## HMI_REG_IRQ register
+### HMI_REG_IRQ register
 
-### Read register
+#### Read register
 ```
 i2cget -y 3 0x50 0x02 wp
 ```
-### Returned value
+#### Returned value
 
 0x0000 means no IRQ happen
 
@@ -164,7 +166,7 @@ i2cget -y 3 0x50 0x02 wp
 | 5   | 0x20 | Touch interrupt occured |
 
 
-### Clear register
+#### Clear register
 
 To clear IRQ register, write 0xFF.
 ```
@@ -178,7 +180,7 @@ i2cget -y 3 0x50 0x02 wp
 
 Selective clear can also be performed using bitmask instead of 0xFFFF value.
 
-## PWM
+### PWM
 | Duty cycle | Hexa value |
 |:---:|:---:|
 | 1   | 0x000A   |
