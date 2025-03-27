@@ -98,9 +98,16 @@ https://github.com/damientil/CSGen1HMI/edit/main/README.md#hmi_reg_irq-register
 ## Read register - general
 
 ```
-debian@BeaglePlay:~$ i2cget -y 3 0x50 REG_ID wp
+i2cget -y 3 0x50 REG_ID wp
 ```
 Replace REG_ID with the register id from the table above.
+
+For long data (Sw version, NFC UID, etc)
+
+```
+i2ctransfer -y 2 w1@0x50 0x00 r4
+```
+
 
 ## HMI_REG_IRQ register
 
