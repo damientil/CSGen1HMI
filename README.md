@@ -138,7 +138,7 @@ i2cset -y 3 0x50 0x07 REG_VALUE wp
 | Out Of Service               | Red Led without timeout.                                                     |     0x0013     |
 | Cloud Disconnected           | Red Led with blinking frequency of 1 Hz,   without timeout.                  |     0x0031     |
 | RFID Declined                | Red Led with blinking frequency of 4 Hz,   with timeout of 2 second          |     0x0021     |
-| Touch Detected               | Yellow (red+green leds)
+| Touch Detected               | Yellow (red+green leds)                                                      |     0x0017     |
 
 ## HMI_REG_IRQ register
 
