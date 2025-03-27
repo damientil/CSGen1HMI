@@ -1,5 +1,18 @@
 # CSGen1HMI
 
+HMI Board is a peripheral board, in charge of the interraction with a user.
+This HMI Board is included in a charging station.
+Mains features of the board is :
+
+* NFC Tag Reading.
+* Leds driving.
+* Touch Sensor detection.
+* Communication in I2C with a Main Board.
+* Internal Temperature monitoring.
+
+HW : This HMI embedded an stm32g030C8Tx (MCU), ST95hf (NFC), AT42QT1011 (Touch), 
+DMN61D8L (LEDs driver).
+
 ## HMI board : wiring
 
 ### Target interface SWD 
