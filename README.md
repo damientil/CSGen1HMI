@@ -10,8 +10,13 @@ Mains features of the board is :
 * Communication in I2C with a Main Board.
 * Internal Temperature monitoring.
 
-HW : This HMI embedded an stm32g030C8Tx (MCU), ST95hf (NFC), AT42QT1011 (Touch), 
-DMN61D8L (LEDs driver).
+## Hardware
+
+This HMI embeds: 
+* MCU : STM32g030C8Tx
+* NFC: ST95hf
+* Touch: AT42QT1011
+* Led driver: DMN61D8L
 
 ## HMI board : wiring
 
