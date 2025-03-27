@@ -68,41 +68,39 @@ I2C-5 is the QWIIC connection
 
 # Commands
 
+## Registers list
+
+https://github.com/damientil/CSGen1HMI/edit/main/README.md#hmi_reg_irq-register
+
+| REG_ID | Register                                | Access | Purpose     | Description |
+|:------:|-----------------------------------------|:------:|:-----------:|-------------|
+| 0x00   | HMI_REG_VERSION_NUM                     | R      | common      |  |
+| 0x01   | HMI_REG_VERSION_SRING                   | R      | common      |  |
+| 0x02   | [HMI_REG_IRQ](#hmi_reg_irq-register)    |        | common      | Notify master which interrupt occured |
+| 0x03   | HMI_REG_IER                             |        | common      | Interupt enable register |
+| 0x04   | HMI_REG_CPUID                           | R      | common      |  |
+| 0x05   | HMI_REG_NFC_LEN                         | R      | common      |  |
+| 0x06   | HMI_REG_NFC_UID                         | R      | common      |  |
+| 0x07   | HMI_REG_CHARGE_STATE_MAIN               |        | indication  |  |
+| 0x08   | HMI_REG_CHARGE_STATE_DYN                |        | indication  |  |
+| 0x09   | HMI_REG_CHARGE_STATE_ERROR              |        | indication  |  |
+| 0x0A   | HMI_REG_CHARGE_STATE_FLAGS              |        | indication  |  |
+| 0x0B   | HMI_REG_TEMPERATURE                     |        | common      | Board temperature in °C |
+| 0x0C   | HMI_REG_PWM                             | R/W    | common      | Led brightness |
+| 0x22   | HMI_REG_HEARTBEAT                       |        | common      |  |
+| 0x23   | HMI_REG_DEBUG_NFC_UID_LEN               |        | debug       |  |
+| 0x24   | HMI_REG_DEBUG_NFC_UID                   |        | debug       |  |
+| 0x35   | HMI_REG_CAPACITIVE_TOUCH_BUTTON_DELAY   |        | common      |  |
+| 0x36   | HMI_REG_CAPACITIVE_FORCED_CHARGE_DELAY  |        | common      |  |
+| 0x37   | HMI_REG_STATUS_HMI_RFID_ENABLED         |        | common      |  |
+| 0x38   | HMI_REG_HEARTBEAT_LOST_FREQUENCY        |        | common      |  |
+
 ## Read register - general
 
 ```
 debian@BeaglePlay:~$ i2cget -y 3 0x50 REG_ID wp
 ```
-Replace REG_ID with the register id from the table below.
-
-## Registers list
-
-https://github.com/damientil/CSGen1HMI/edit/main/README.md#hmi_reg_irq-register
-
-
-| REG_ID | Register                                | Purpose     | Description | Tested |
-|:------:|-----------------------------------------|:-----------:|-------------|:------:|
-| 0x00   | HMI_REG_VERSION_NUM                     | common      |  | nok :red_circle:
-| 0x01   | HMI_REG_VERSION_SRING                   | common      |  | nok :red_circle:
-| 0x02   | [HMI_REG_IRQ](#hmi_reg_irq-register)    | common      | Notify master which interrupt occured | ok
-| 0x03   | HMI_REG_IER                             | common      | Interupt enable register | ok
-| 0x04   | HMI_REG_CPUID                           | common      |  | nok :red_circle:
-| 0x05   | HMI_REG_NFC_LEN                         | common      |  | ok
-| 0x06   | HMI_REG_NFC_UID                         | common      |  | nok :red_circle:
-| 0x07   | HMI_REG_CHARGE_STATE_MAIN               | indication  |  | ok
-| 0x08   | HMI_REG_CHARGE_STATE_DYN                | indication  |  | ok
-| 0x09   | HMI_REG_CHARGE_STATE_ERROR              | indication  |  | nok :red_circle:
-| 0x0A   | HMI_REG_CHARGE_STATE_FLAGS              | indication  |  | ok
-| 0x0B   | HMI_REG_TEMPERATURE                     | common      | Board temperature in °C | ok
-| 0x0C   | HMI_REG_PWM                             | common      | Led brightness | ok
-| 0x22   | HMI_REG_HEARTBEAT                       | common      |  | ok
-| 0x23   | HMI_REG_DEBUG_NFC_UID_LEN               | debug       |  | nok :red_circle:
-| 0x24   | HMI_REG_DEBUG_NFC_UID                   | debug       |  | ok
-| 0x35   | HMI_REG_CAPACITIVE_TOUCH_BUTTON_DELAY   | common      |  | ok
-| 0x36   | HMI_REG_CAPACITIVE_FORCED_CHARGE_DELAY  | common      |  | ok
-| 0x37   | HMI_REG_STATUS_HMI_RFID_ENABLED         | common      |  | ok
-| 0x38   | HMI_REG_HEARTBEAT_LOST_FREQUENCY        | common      |  | ok
-
+Replace REG_ID with the register id from the table above.
 
 ## HMI_REG_IRQ register
 
