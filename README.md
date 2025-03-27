@@ -1,5 +1,17 @@
 # CSGen1HMI
 
+## HMI board : wiring
+
+### Target interface SWD 
+
+ARM's **S**erial **W**ire **D**ebug (**SWD**) replaces the traditional 5-pin JTAG debug interface by introducing a 2-pin interface with a clock (SWDCLK) and a single bi-directional data pin (SWDIO), providing all the normal JTAG debug and test functionality. 
+
+SWDIO and SWCLK are overlaid on the TMS and TCK pins, allowing to use the same connector for JTAG and SWD. In order to communicate with a device via SWD, data is send on SWDIO, synchronous to the SWCLK. With every rising edge of SWCLK, one bit of data is transmitted or received on the SWDIO pin.
+
+### SWD wiring on PCB
+
+
+
 ## Connect to Wifi Beagle hotspot
 * Wifi host : BeaglePlay-xxx
 * Password : BeaglePlay or Beagle board
