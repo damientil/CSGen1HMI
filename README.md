@@ -20,6 +20,10 @@ This HMI embeds:
 
 ![hmi-pcb](docs/hmi-pcb.png)
 
+## HMI <-> Main board connector
+
+![hmi-pcb](docs/PCB-J500-connector.png)
+
 ## HMI sw debug
 
 ### Target interface SWD 
